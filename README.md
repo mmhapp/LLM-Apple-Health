@@ -1,4 +1,4 @@
-# Health Agent
+# LLM Apple Health
 
 Use Apple Fitness and Health data together with a local LLM-based AI agent to support your own health. The agent works with cardiovascular data (heart rate variability, respiratory rate, resting heart rate, wrist temperature, blood oxygen saturation) and ECG signals.
 

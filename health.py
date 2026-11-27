@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 import argparse
 import csv
 import json
@@ -10,10 +9,10 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
-
 import numpy as np
 import pandas as pd
 import requests
+
 
 # Ympäristömuuttujat ja oletusarvot
 DEFAULT_MODEL = os.environ.get("OLLAMA_MODEL", "smollm2:135m-instruct-q2_K")
@@ -268,6 +267,7 @@ def run_ecg(args: argparse.Namespace) -> int:
 # Muut terveysmittarit
 # ---------------------------------------------------------------------------
 
+
 LINE_RE = re.compile(r"^(\d{1,2})\.(\d{1,2})\.(\d{4})\s+klo\s+(\d{1,2})\.(\d{2}),\s*([\-\d\.]+)\s*$")
 
 
@@ -280,6 +280,7 @@ class MetricConfig:
     abs_threshold: float | None
     manual_baseline: float | None
 
+
 # ASETA BASELINE MANUAALISESTI
 METRICS = {
     "ls":  MetricConfig("ls",  "Leposyke", "/min", "high", 6.0, 65.0),
@@ -288,6 +289,7 @@ METRICS = {
     "ht":  MetricConfig("ht",  "Hengitystiheys", "/min", "high", 2.0, 15.0),
     "spo": MetricConfig("spo", "Veren happitaso", "%", "low", 2.0, 97.0),
 }
+
 
 REL_THRESHOLDS = {"hrv": 0.20}
 
@@ -421,6 +423,7 @@ def run_cardio(args: argparse.Namespace) -> int:
 # ---------------------------------------------------------------------------
 # CLI-määritelmät
 # ---------------------------------------------------------------------------
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Apple Watch -terveysagentti")
